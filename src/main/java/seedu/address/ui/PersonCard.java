@@ -38,6 +38,9 @@ public class PersonCard extends UiPart<Region> {
     private Label address;
     @FXML
     private Label email;
+    @FXML
+    private Label remark;
+
 
     // used to display blue color tags.
     @FXML
@@ -54,6 +57,7 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+        remark.setText(person.getRemark().value);
 
         // This is the code to show blue tags. I will comment it out instead of deleting it.
         /*
