@@ -5,6 +5,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
@@ -34,13 +35,13 @@ public class RemarkCommand extends Command {
 //...
 
     private final Index index;
-    private final String remark;
+    private final Remark remark;
 
     /**
      * @param index of the person in the filtered person list to edit the remark
      * @param remark of the person to be updated to
      */
-    public RemarkCommand(Index index, String remark) {
+    public RemarkCommand(Index index, Remark remark) {
         requireAllNonNull(index, remark);
 
         this.index = index;
@@ -75,7 +76,7 @@ public class RemarkCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !remark.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
         return String.format(message, Messages.format(personToEdit));
     }
 
