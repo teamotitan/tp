@@ -1,7 +1,6 @@
 package guitests.guihandles;
 
 import guitests.GuiRobot;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 

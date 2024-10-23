@@ -19,6 +19,10 @@ public class BrowserPanelHandle extends NodeHandle<Node> {
 
     private URL lastRememberedUrl;
 
+    /**
+     * Handle for the Browser panel
+     * @param browserPanelNode
+     */
     public BrowserPanelHandle(Node browserPanelNode) {
         super(browserPanelNode);
 
