@@ -45,34 +45,6 @@ public class CommandBoxTest extends GuiUnitTest {
         assertBehaviorForSuccessfulCommand();
         assertBehaviorForFailedCommand();
     }
-
-//    @Test
-//    public void commandBox_startingWithFailedCommand() {
-//        assertBehaviorForFailedCommand();
-//        assertBehaviorForSuccessfulCommand();
-//
-//        // verify that style is changed correctly even after multiple consecutive failed commands
-//        assertBehaviorForSuccessfulCommand();
-//        assertBehaviorForFailedCommand();
-//        assertBehaviorForFailedCommand();
-//    }
-//
-//    @Test
-//    public void commandBox_handleKeyPress() {
-//        commandBoxHandle.run(COMMAND_THAT_FAILS);
-//        assertEquals(errorStyleOfCommandBox, commandBoxHandle.getStyleClass());
-//        guiRobot.push(KeyCode.ESCAPE);
-//        assertEquals(errorStyleOfCommandBox, commandBoxHandle.getStyleClass());
-//
-//        guiRobot.push(KeyCode.A);
-//        assertEquals(defaultStyleOfCommandBox, commandBoxHandle.getStyleClass());
-//    }
-//
-//    /**
-//     * Runs a command that fails, then verifies that <br>
-//     *      - the text remains <br>
-//     *      - the command box's style is the same as {@code errorStyleOfCommandBox}.
-//     */
     private void assertBehaviorForFailedCommand() {
         commandBoxHandle.run(COMMAND_THAT_FAILS);
         assertEquals(COMMAND_THAT_FAILS, commandBoxHandle.getInput());
