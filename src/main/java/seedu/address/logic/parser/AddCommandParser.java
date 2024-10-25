@@ -45,7 +45,6 @@ public class AddCommandParser implements Parser<AddCommand> {
                 PREFIX_SCHEDULE, PREFIX_SUBJECT, PREFIX_RATE) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
-        
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
                 PREFIX_SCHEDULE, PREFIX_SUBJECT, PREFIX_RATE, PREFIX_PAID_AMOUNT, PREFIX_OWED_AMOUNT);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
