@@ -15,6 +15,8 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.student.Days;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.predicates.AttributeContainsKeywordsPredicate;
+import seedu.address.model.student.predicates.NameContainsKeywordsPredicate;
+import seedu.address.model.student.predicates.ScheduleContainsKeywordsPredicate;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -147,12 +149,20 @@ public class ModelManager implements Model {
     public void updateFilteredStudentList(List<AttributeContainsKeywordsPredicate<?>> predicates) {
         requireNonNull(predicates);
 
-        Predicate<Student> combinedPredicate = predicates.stream()
-                .map(predicate -> (Predicate<Student>) predicate) // Cast each to Predicate<Student>
-                .reduce(Predicate::or) // combine all predicates using OR
-                .orElse(PREDICATE_SHOW_ALL_STUDENTS); // Default to show all if no predicates are given
+        Predicate<Student> scheduleCombinedPredicate = predicates.stream()
+                .filter(predicate -> predicate instanceof ScheduleContainsKeywordsPredicate)
+                .map(predicate -> (Predicate<Student>) predicate)
+                .reduce(Predicate::or)
+                .orElse(PREDICATE_SHOW_ALL_STUDENTS);
 
-        filteredStudents.setPredicate(combinedPredicate);
+
+        Predicate<Student> nameCombinedPredicate = predicates.stream()
+                .filter(predicate -> predicate instanceof NameContainsKeywordsPredicate)
+                .map(predicate -> (Predicate<Student>) predicate)
+                .reduce(Predicate::or)
+                .orElse(PREDICATE_SHOW_ALL_STUDENTS);
+
+        filteredStudents.setPredicate(scheduleCombinedPredicate.and(nameCombinedPredicate));
     }
 
     @Override
