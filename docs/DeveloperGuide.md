@@ -883,3 +883,8 @@ phone number in the world are 3 and 17 digits long respectively, according to th
 1. **Improve UI to be horizontally scrollable**: Currently, UGTeach only allows vertical scrolling as it is unlikely for students to have an extremely long name or email.
 Hence 'extreme' inputs (e.g., name with 1000 characters) are **truncated** which might interfere with the normal usage of UGTeach.
 Therefore, we plan to improve the UI by **adding a horizontal scroll bar** so that users can view 'extreme' inputs.
+
+1. **Help links to help page in the application**: Currently, when users goes to the help window, UGTeach provides a url
+that redirects users to a website with the documentation. This might not be good if users are using it in a place
+with no internet connection. Hence, we plan to add a help page in the application where users can view
+offline, and should they require more information they can go to the url link.
